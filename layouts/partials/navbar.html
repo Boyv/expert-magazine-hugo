@@ -1,0 +1,36 @@
+<nav class="navbar">
+    <div class="container nav-wrapper">
+        <div class="nav-left">
+            <a href="{{ "/" | relLangURL }}" class="nav-home-link" title="{{ T "home_title" }}">
+                <i class="fas fa-house"></i>
+            </a>
+            <a href="{{ "/" | relLangURL }}" class="nav-brand"></a>
+        </div>
+
+        <ul class="nav-menu">
+            {{ range .Site.Menus.main }}
+            <li>
+                <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+            </li>
+            {{ end }}
+        </ul>
+
+        <div class="nav-actions">
+            <div class="lang-switcher">
+                {{ if .IsTranslated }}
+                    {{ range .AllTranslations }}
+                        <a href="{{ .Permalink }}" class="lang-link">
+                            {{ if eq .Language.Lang "fr" }}FR{{ else }}EN{{ end }}
+                        </a>
+                    {{ end }}
+                {{ else }}
+                    <span class="lang-link active">{{ .Language.Lang | upper }}</span>
+                {{ end }}
+            </div>
+            
+            <div class="search-wrapper">
+                <i class="fas fa-search nav-search" title="{{ T "search_title" }}"></i>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,67 @@
+{{ define "main" }}
+{{- /* 1. INITIALISATION DU PAGINATEUR (Priorité absolue) */ -}}
+{{- $pagerSize := .Site.Params.articles_par_page | default 6 -}}
+{{- $paginator := .Paginate .Pages $pagerSize -}}
+
+<div class="notes-list-wrapper">
+    <header class="section-header">
+        <div class="container">
+            <h1 class="section-title">{{ .Title }}</h1>
+            <p class="section-subtitle">{{ .Params.subtitle }}</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="articles-grid">
+            {{- /* 2. BOUCLE SUR LES ARTICLES PAGINÉS */ -}}
+            {{ range $paginator.Pages }}
+            <article class="article-card">
+                <a href="{{ .Permalink }}" class="card-image-link">
+                    <div class="card-image">
+                        {{- $img := .Resources.GetMatch .Params.header_img -}}
+                        {{- if $img -}}
+                            {{- $thumbnail := $img.Fill "600x400 webp q80" -}}
+                            <img src="{{ $thumbnail.RelPermalink }}" 
+                                 alt="{{ .Title }}" 
+                                 loading="lazy" 
+                                 width="600" 
+                                 height="400">
+                        {{- else -}}
+                            <img src="{{ .Site.Params.header_image | relURL }}" 
+                                 alt="{{ .Title }}" 
+                                 loading="lazy">
+                        {{- end -}}
+                    </div>
+                </a>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="meta-date">
+                            <i class="far fa-calendar-alt"></i> {{ .Date.Format "02/01/2006" }}
+                        </span>
+                    </div>
+                    <h2 class="card-title">
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    </h2>
+                    <p class="card-excerpt">
+                        {{ .Params.abstract | default .Summary | truncate 160 }}
+                    </p>
+                    <div class="card-footer">
+                        <a href="{{ .Permalink }}" class="read-more">{{ T "read_more" }} →</a>
+                        <div class="card-tags">
+                            {{ with .Params.tags }}
+                                {{ range first 2 . }}
+                                    <span class="mini-tag">#{{ . }}</span>
+                                {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </article>
+            {{ end }}
+        </div>
+        
+        {{- /* 3. NAVIGATION (Affichée uniquement si > $pagerSize) */ -}}
+        {{ partial "pagination.html" . }}
+    </div>
+</div>
+{{ end }}

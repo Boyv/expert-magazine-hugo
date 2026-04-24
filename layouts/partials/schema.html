@@ -1,0 +1,28 @@
+{{- $author := .Site.Params.author -}}
+{{- $desc := .Description | default (.Site.Params.description | default $author.description) -}}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  {{ if .IsHome }}
+  "@type": "Person",
+  "name": {{ $author.name | jsonify | safeJS }},
+  "url": {{ .Site.BaseURL | absURL | jsonify | safeJS }},
+  "jobTitle": {{ $author.job_title | jsonify | safeJS }},
+  "description": {{ $desc | jsonify | safeJS }},
+  "knowsAbout": {{ $author.tech_stack | jsonify | safeJS }},
+  "sameAs": [
+    {{ if .Site.Params.social.linkedin }}{{ .Site.Params.social.linkedin | jsonify | safeJS }}{{ end }}
+    {{ if .Site.Params.social.github }}{{ if .Site.Params.social.linkedin }},{{ end }}{{ .Site.Params.social.github | jsonify | safeJS }}{{ end }}
+  ]
+  {{ else if .IsPage }}
+  "@type": "Article",
+  "headline": {{ .Title | jsonify | safeJS }},
+  "description": {{ $desc | jsonify | safeJS }},
+  "author": {
+    "@type": "Person",
+    "name": {{ $author.name | jsonify | safeJS }}
+  }
+  {{ end }}
+}
+</script>

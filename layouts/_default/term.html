@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="archive-wrapper">
+    <header class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ .Site.Params.header_image | relURL }}');">
+        <div class="container">
+            <h1 class="page-title">{{ .Title }}</h1>
+            <p class="page-subtitle">{{ .Description | default "Réflexions sur le SEO, l'IA et la Data Intelligence" }}</p>
+        </div>
+    </header>
+
+    <div class="container list-container">
+        <div class="posts-list">
+            {{ range .Paginator.Pages }}
+            <article class="post-preview">
+                <a href="{{ .Permalink }}">
+                    <h2 class="post-title">{{ .Title }}</h2>
+                    {{ if .Params.subtitle }}
+                        <h3 class="post-subtitle">{{ .Params.subtitle }}</h3>
+                    {{ end }}
+                    <div class="post-content-preview">
+                        {{ .Summary | truncate 200 }}
+                    </div>
+                </a>
+                <p class="post-meta">
+                    Posté par {{ .Site.Title }} le {{ .Date.Format "02 January 2006" }}
+                </p>
+            </article>
+            <hr class="post-separator">
+            {{ end }}
+
+            {{ partial "pagination.html" . }}
+        </div>
+    </div>
+</div>
+{{ end }}

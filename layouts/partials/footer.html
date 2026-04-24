@@ -1,0 +1,57 @@
+<footer class="main-footer">
+    <div class="container footer-grid">
+        <div class="footer-about">
+            <h4>{{ .Site.Title }}</h4>
+            {{- /* On récupère la description de l'auteur selon la langue */ -}}
+            <p>{{ .Site.Params.author.description }}</p>
+        </div>
+
+        <div class="footer-links">
+            {{- /* Titre générique pour les liens utiles */ -}}
+            <h4>{{ if eq .Language.Lang "fr" }}Liens utiles{{ else }}Useful Links{{ end }}</h4>
+            <ul>
+                {{- /* Boucle dynamique sur le menu footer du toml */ -}}
+                {{ range .Site.Menus.footer }}
+                <li><a href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
+                {{ end }}
+                {{- /* On garde le lien "About" s'il n'est pas dans le menu footer */ -}}
+                <li><a href="{{ "/about/" | relLangURL }}">{{ T "nav_about" }}</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <ul class="footer-contact-list">
+                <li>
+                    <a href="mailto:{{ .Site.Params.social.email }}">
+                        <i class="fas fa-envelope"></i> {{ .Site.Params.social.email }}
+                    </a>
+                </li>
+                {{ with .Site.Params.social.linkedin }}
+                <li>
+                    <a href="{{ . }}" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </li>
+                {{ end }}
+                {{ with .Site.Params.social.github }}
+                <li>
+                    <a href="{{ . }}" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom text-center">
+        <p>
+            &copy; {{ now.Format "2006" }} — {{ .Site.Params.author.name }}. 
+            {{ T "footer_made_with" }}
+            <br>
+            {{- /* Ajout de la licence MIT pour le dépôt Github */ -}}
+            Sous licence <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a>.
+        </p>
+    </div>
+</footer>

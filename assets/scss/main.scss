@@ -1,0 +1,383 @@
+/* ==========================================================================
+   1. VARIABLES & BASE
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+
+$font-main: 'Inter', -apple-system, sans-serif;
+$petrole: #0085a1;
+$dark: #2d3436;
+$light-grey: #f8f9fa;
+$border: #edf2f7;
+
+body { margin: 0; font-family: $font-main; color: $dark; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+a { text-decoration: none; transition: 0.3s ease; }
+
+/* ==========================================================================
+   2. NAVIGATION & RECHERCHE (Fix "En Vrac")
+   ========================================================================== */
+.navbar {
+    padding: 25px 0; position: absolute; width: 100%; z-index: 1000;
+    .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+    .nav-left { display: flex; align-items: center; gap: 20px; }
+    .nav-home-link { color: white; font-size: 1.3rem; &:hover { color: $petrole; } }
+    .nav-menu { 
+        list-style: none !important; display: flex; gap: 35px; margin: 0; padding: 0;
+        li { list-style: none !important; &::before { content: none !important; } }
+        a { color: white; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; &:hover { color: $petrole; } }
+    }
+    .nav-actions .nav-search { color: white; cursor: pointer; font-size: 1.2rem; &:hover { color: $petrole; } }
+}
+
+body:not(.home) .navbar { background-color: $dark; position: relative; }
+
+.search-modal {
+    display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+    background: rgba(45, 52, 70, 0.95); backdrop-filter: blur(10px);
+}
+.search-modal-content {
+    margin: 10% auto; width: 90%; max-width: 700px; background: white; border-radius: 20px; padding: 40px;
+    .search-header { display: flex; align-items: center; gap: 20px; border-bottom: 2px solid $light-grey; padding-bottom: 20px; }
+    input { flex: 1; border: none; font-size: 1.5rem; outline: none; }
+}
+
+/* ==========================================================================
+   3. HEADER MAGAZINE (DISCOVER)
+   ========================================================================== */
+.page-header-refined {
+    padding: 30px 0; background: #fff;
+    .header-image-container {
+        position: relative; width: 100%; height: 350px; border-radius: 20px; overflow: hidden;
+        margin-bottom: -120px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        .header-main-img { width: 100%; height: 100%; object-fit: cover; }
+        .header-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%); }
+    }
+    .header-content-box {
+        position: relative; z-index: 10; background: white; max-width: 700px; margin: 0 auto;
+        padding: 30px 40px; border-radius: 15px; text-align: center; box-shadow: 0 15px 45px rgba(0,0,0,0.08);
+        .page-title { color: $dark; font-size: 2.4rem; margin-bottom: 10px; line-height: 1.2; font-weight: 900; }
+        .page-subtitle { color: $petrole; font-weight: 400; font-size: 1.2rem; margin-bottom: 15px; }
+        .post-meta { font-size: 0.95rem; color: #718096; i { margin-right: 8px; color: $petrole; } }
+    }
+}
+
+/* ==========================================================================
+   4. HOME & PROFIL
+   ========================================================================== */
+.hero {
+    height: 35vh; min-height: 300px; background-size: cover; background-position: center;
+    display: flex; align-items: center; justify-content: center; color: white; text-align: center; position: relative;
+    &::before { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)); z-index: 1; }
+    .container { position: relative; z-index: 2; padding-top: 60px; }
+    .hero-title { font-size: 4rem; font-weight: 900; margin: 0; }
+}
+
+.profile-section {
+    padding: 100px 0;
+    .profile-grid { display: grid; grid-template-columns: 1.5fr 0.5fr; gap: 80px; align-items: start; }
+    .job-title { color: $petrole; font-size: 3rem; font-weight: 900; margin-bottom: 25px; }
+    .profile-visual { text-align: center; .avatar { width: 100%; max-width: 300px; border-radius: 50%; border: 10px solid white; box-shadow: 0 20px 50px rgba(0,0,0,0.1); } }
+}
+
+.tech-stack-badges {
+    display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 35px;
+    .badge { 
+        background: #f1f2f6; color: $dark; padding: 8px 18px; border-radius: 8px; font-weight: 700; border: 1px solid $border; transition: 0.3s;
+        &:hover { background: white; color: $petrole; border-color: $petrole; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 133, 161, 0.15); }
+    }
+}
+
+.social-links-list {
+    display: flex; justify-content: center; list-style: none !important; padding: 0 !important; margin: 25px 0 0 0 !important; gap: 25px;
+    li { list-style: none !important; margin: 0 !important; &::before { content: none !important; } }
+    a { color: #b2bec3; font-size: 1.5rem; &:hover { color: $petrole; transform: translateY(-3px); } }
+}
+
+.btn-cv {
+    display: inline-block; padding: 14px 32px; background: $petrole; color: white !important; border-radius: 10px; font-weight: 800; margin-top: 40px; box-shadow: 0 5px 15px rgba(0, 133, 161, 0.25);
+    &:hover { background: $dark; transform: translateY(-3px); }
+}
+
+/* ==========================================================================
+   5. EXPERTISES & CONTENU
+   ========================================================================== */
+.expertises-section { background: $light-grey; padding: 100px 0; }
+.expertises-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+.expertise-card {
+    background: white; padding: 45px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: 0.4s ease; &:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,133,161,0.1); }
+    i { font-size: 2.5rem; color: $petrole; margin-bottom: 25px; display: block; }
+}
+
+.post-abstract-box {
+    margin: 30px 0 40px 0; // Réduit de 60px
+    padding: 25px 35px; // Plus compact
+    background: #f0f9ff; border: 1px solid rgba($petrole, 0.1); border-left: 10px solid $petrole;
+    border-radius: 16px; padding: 35px; margin: 40px 0 60px 0; position: relative; overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 133, 161, 0.08);
+    .abstract-header { display: inline-flex; align-items: center; gap: 10px; background: $petrole; color: white; padding: 6px 18px; border-radius: 50px; font-size: 0.8rem; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; }
+    .abstract-text { font-size: 1.2rem; line-height: 1.8; color: #2d3436; font-style: italic; }
+    &::after { content: "\f544"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; right: -10px; bottom: -20px; font-size: 110px; color: rgba($petrole, 0.03); transform: rotate(-15deg); pointer-events: none; }
+}
+
+.content-body {
+    font-size: 1.15rem; line-height: 1.8;
+    h2 { color: $petrole; font-size: 2.2rem; margin: 60px 0 25px; border-bottom: 2px solid $light-grey; padding-bottom: 10px; }
+    ul { list-style: none !important; padding-left: 20px; li { position: relative; margin-bottom: 15px; &::before { content: "→"; color: $petrole; font-weight: bold; position: absolute; left: -30px; } } }
+    table {
+        width: 100%; border-collapse: collapse; margin: 40px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        tr { transition: background 0.2s ease; &:hover { background-color: rgba($petrole, 0.05) !important; cursor: pointer; } }
+        th { background: $dark; color: white; padding: 18px; text-align: left; text-transform: uppercase; }
+        td { padding: 18px; border-bottom: 1px solid $border; }
+    }
+}
+
+/* ==========================================================================
+   6. FOOTER & TAGS (Fix "En Vrac")
+   ========================================================================== */
+.post-end-separator { border: 0; border-top: 1px solid $border; margin: 60px 0 40px; }
+.post-tags-section {
+    display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 80px;
+    .tag-badge {
+        display: inline-flex; align-items: center; background: #f1f2f6; color: $dark; padding: 8px 20px;
+        border-radius: 50px; font-weight: 700; font-size: 0.85rem; transition: 0.3s;
+        i { margin-right: 8px; color: $petrole; font-size: 0.8rem; }
+        &:hover { background: white; color: $petrole; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 133, 161, 0.1); }
+    }
+}
+
+.main-footer {
+    border-top: 1px solid $border; padding: 80px 0 40px; background: #fff;
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 50px; }
+    h4 { color: $petrole; font-weight: 800; margin-bottom: 25px; text-transform: uppercase; }
+    ul { 
+        list-style: none !important; padding: 0 !important; margin: 0 !important;
+        li { list-style: none !important; margin-bottom: 12px !important; &::before { content: none !important; } a { color: #718096; &:hover { color: $petrole; } } }
+    }
+}
+.footer-bottom { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #f7fafc; color: #a0aec0; font-size: 0.85rem; }
+
+/* ==========================================================================
+   7. RESPONSIVE MASTER
+   ========================================================================== */
+@media (max-width: 992px) {
+    html, body { overflow-x: hidden; width: 100%; position: relative; }
+    .hero-title, .page-header-refined .page-title { font-size: 2.2rem !important; }
+    .page-header-refined { .header-image-container { height: 300px; margin-bottom: -50px; } .header-content-box { padding: 30px 20px; } }
+    .profile-grid, .expertises-grid, .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
+    .footer-contact-list li a { justify-content: center; }
+    .tech-stack-badges, .social-links-list { justify-content: center; }
+    .content-body table { display: block; overflow-x: auto; }
+}
+
+.post-lastmod { font-size: 0.85rem; opacity: 0.7; font-weight: normal; margin-left: 5px; }
+
+/* ==========================================================================
+   8. PAGE LISTE DES NOTES (ARTICLES GRID)
+   ========================================================================== */
+.notes-list-wrapper {
+    background-color: #fcfcfc;
+    padding-bottom: 100px;
+}
+
+.section-header {
+    background: $dark;
+    padding: 100px 0 160px;
+    text-align: center;
+    color: white;
+    margin-bottom: -80px; // Pour faire chevaucher les premières cartes
+
+    .section-title { font-size: 3.5rem; font-weight: 900; margin: 0; }
+    .section-subtitle { font-size: 1.2rem; opacity: 0.8; margin-top: 15px; font-weight: 300; }
+}
+
+/* Force la grille à 3 colonnes sur desktop */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+    gap: 30px; /* Espace entre les cartes */
+    width: 100%;
+}
+
+/* Adaptabilité (Responsive) */
+@media (max-width: 992px) {
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
+    }
+}
+
+@media (max-width: 600px) {
+    .articles-grid {
+        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    }
+}
+
+.article-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 133, 161, 0.15);
+        
+        .card-title a { color: $petrole; }
+        .card-image img { transform: scale(1.05); }
+    }
+
+    .card-image {
+        height: 220px;
+        overflow: hidden;
+        position: relative;
+        img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
+    }
+
+    .card-content {
+        padding: 30px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-meta {
+        font-size: 0.85rem;
+        color: #a0aec0;
+        margin-bottom: 15px;
+        i { color: $petrole; margin-right: 5px; }
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 15px;
+        a { color: $dark; }
+    }
+
+    .card-excerpt {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    .card-footer {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+        border-top: 1px solid #f7fafc;
+
+        .read-more {
+            font-weight: 700;
+            color: $petrole;
+            font-size: 0.9rem;
+            &:hover { text-decoration: underline; }
+        }
+        
+        .mini-tag {
+            font-size: 0.75rem;
+            color: #b2bec3;
+            margin-left: 10px;
+        }
+    }
+}
+
+/* Responsive spécifique liste */
+@media (max-width: 768px) {
+    .section-header .section-title { font-size: 2.5rem; }
+    .articles-grid { grid-template-columns: 1fr !important; gap: 30px; }
+    .article-card .card-image { height: 200px; }
+}
+
+
+/* ==========================================================================
+   9. Country selector
+   ========================================================================== */
+
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espace entre les langues et la recherche */
+}
+
+.lang-switcher {
+    display: flex;
+    gap: 10px;
+    border-right: 1px solid rgba(255,255,255,0.2); /* Petit séparateur subtil */
+    padding-right: 15px;
+}
+
+.lang-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.lang-link:hover {
+    color: #fff;
+}
+
+/* Style pour la recherche pour qu'elle soit bien alignée */
+.nav-search {
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #fff;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.nav-search:hover {
+    opacity: 1;
+}
+
+
+/* ==========================================================================
+   10. Pagination
+   ========================================================================== */
+
+.pagination-container {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    padding: 0;
+}
+
+.page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: var(--card-bg, #1e293b);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.page-item.active .page-link {
+    background: var(--accent-color, #3b82f6);
+    border-color: #3b82f6;
+}
+
+.page-link:hover {
+    background: #334155;
+    transform: translateY(-2px);
+}

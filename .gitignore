@@ -1,0 +1,11 @@
+# Dossiers de compilation et de cache
+public/
+resources/
+hugo_stats.json
+
+# Fichiers de verrouillage Hugo
+.hugo_build.lock
+
+# Fichiers système
+.DS_Store
+Thumbs.db

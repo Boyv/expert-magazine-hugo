@@ -1,0 +1,65 @@
+{{ define "main" }}
+<article class="post-single">
+    <header class="page-header-refined">
+        <div class="container">
+            <div class="header-image-container">
+                {{- /* 1. On récupère l'image en tant que ressource du dossier de l'article */ -}}
+                {{- $img := .Resources.GetMatch .Params.header_img -}}
+                
+                {{- /* 2. Si l'image existe dans le dossier, on affiche son lien permanent (RelPermalink) */ -}}
+                {{- /* Sinon, on affiche l'image par défaut du site définie dans hugo.toml */ -}}
+                <img src="{{ with $img }}{{ .RelPermalink }}{{ else }}{{ .Site.Params.header_image | relURL }}{{ end }}" 
+                     alt="{{ .Title }}" 
+                     class="header-main-img">
+                
+                <div class="header-overlay"></div>
+            </div>
+            
+            <div class="header-content-box">
+                <h1 class="page-title">{{ .Title }}</h1>
+                {{ if .Params.subtitle }}
+                <p class="page-subtitle">{{ .Params.subtitle }}</p>
+                {{ end }}
+
+                <p class="post-meta">
+                 <i class="far fa-calendar-alt"></i> 
+                {{ T "published_on" }} {{ .Date.Format (T "date_format") }}
+        
+                  {{ if ne .Lastmod .Date }}
+               <span class="post-lastmod">
+                • {{ T "last_updated" }} {{ .Lastmod.Format (T "date_format") }}
+                 </span>
+                {{ end }}
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container page-content-wrapper">
+        {{ if .Params.abstract }}
+        <section class="post-abstract-box" id="speakable-summary">
+            <div class="abstract-header">
+                <i class="fas fa-robot"></i> RÉSUMÉ IA & TL;DR
+            </div>
+            <div class="abstract-text">
+                {{ .Params.abstract }}
+            </div>
+        </section>
+        {{ end }}
+
+        <div class="content-body">
+             {{ .Content }}
+        </div>
+        
+        <hr class="post-end-separator">
+
+        <div class="post-tags-section">
+            {{ range .Params.tags }}
+            <a href="{{ "tags/" | relLangURL }}{{ . | urlize | lower }}" class="tag-badge">
+                <i class="fas fa-tag"></i> {{ . }}
+            </a>
+            {{ end }}
+        </div>
+    </div>
+</article>
+{{ end }}

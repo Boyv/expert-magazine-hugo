@@ -1,0 +1,50 @@
+{{ define "main" }}
+    <header class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ .Site.Params.header_image | relURL }}');">
+        <div class="container">
+            <h1 class="hero-title">{{ .Site.Title }}</h1>
+            <p class="hero-tagline">{{ .Site.Params.slogan }}</p>
+        </div>
+    </header>
+
+    <section class="profile-section container">
+        <div class="profile-grid">
+            <div class="profile-text">
+                <h2 class="job-title">{{ .Site.Params.job_title }}</h2>
+                <div class="tech-stack-badges">
+        {{ range .Site.Params.tech_stack }}
+            <span class="badge">{{ . }}</span>
+        {{ end }}
+    </div>
+                <div class="bio-content">
+                    {{ .Content }}
+                </div>
+                </div>
+            <div class="profile-visual">
+                <img src="{{ .Site.Params.sidebar_avatar | relURL }}" allt="{{ .Site.Params.author.name | default "Profile Picture" }}" class="avatar">
+                <div class="social-icons">
+                    {{ partial "sns-links.html" . }}
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-area">
+            <a href="{{ .Site.Params.author.cv_url | default "#" }}" class="btn-cv" target="_blank">{{ T "view_cv" }}</a>
+        </div>
+    </section>
+
+    <section class="expertises-section container">
+        <div class="expertises-grid">
+            {{ range .Site.Data.competences.expertises }}
+            <div class="expertise-card">
+                <i class="{{ .icon }}"></i>
+                <h3>{{ .categorie }}</h3>
+                <ul>
+                    {{ range .points }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+{{ end }}

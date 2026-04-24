@@ -1,0 +1,49 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="max-image-preview:large">
+<link rel="canonical" href="{{ .Permalink }}">
+
+<meta property="og:image" content="{{ .Params.header_img | default .Site.Params.header_image | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ .Params.header_img | default .Site.Params.header_image | absURL }}">
+
+<title>
+    {{- if .Params.meta_title -}}
+        {{ .Params.meta_title }}
+    {{- else if .IsHome -}}
+        {{ .Site.Title }} | {{ .Site.Params.tagline }}
+    {{- else -}}
+        {{ .Title }} | {{ .Site.Title }}
+    {{- end -}}
+</title>
+
+{{- $desc := .Description | default (.Params.meta_description | default (.Summary | default .Site.Params.description)) -}}
+{{- $clean_desc := $desc | plainify | truncate 160 -}}
+
+<meta name="description" content="{{ $clean_desc }}">
+
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ if .Params.meta_title }}{{ .Params.meta_title }}{{ else if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ $clean_desc }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:locale" content="{{ if eq .Language.Lang "en" }}en_US{{ else }}fr_FR{{ end }}">
+
+{{ $style := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+{{ partial "schema.html" . }}
+
+{{ if .IsTranslated }}
+    {{ range .AllTranslations }}
+        <link rel="alternate" hreflang="{{ .Language.LanguageCode | default .Language.Lang }}" href="{{ .Permalink }}">
+    {{ end }}
+    {{ range .AllTranslations }}
+        {{ if eq .Language.Lang "en" }}
+            <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+        {{ end }}
+    {{ end }}
+{{ end }}

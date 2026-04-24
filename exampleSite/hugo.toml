@@ -1,0 +1,119 @@
+defaultContentLanguage = "en"
+languageCode = "en-us"
+
+[languages.fr]
+  languageCode = "fr-fr"
+  languageName = "Français"
+  weight = 1
+  title = "Expert SEO (FR)"
+
+  # === TOUT CE QUI EST TRADUISIBLE VA ICI ===
+  [languages.fr.params]
+    tagline = "Chef de projet SEO & IA"
+    description = "Expert en stratégie SEO, GEO et SGE pour optimiser votre visibilité."
+
+    [languages.fr.params.author]
+      name = "Jean Bon"
+      job_title = "Chef de projet SEO / GEO / SGE"
+      slogan = "L'architecture de votre visibilité à l'ère de l'IA et de la Data."
+      description = "Expert en stratégie SEO, GEO et SGE pour optimiser votre visibilité." # Répétez-la ici pour le JSON
+      tech_stack = ["GA4", "GSC", "BigQuery", "Python", "SEO Agentique"]
+      cv_url = "/cv-yves-b-fr.pdf"
+
+    # Expertises spécifiques au français
+    [[languages.fr.params.expertises]]
+      title = "Expertise Stratégique & IA"
+      icon = "fas fa-brain"
+      content = "Stratégie SEO & SGE. Optimisation de la visibilité sur les moteurs de réponse."
+    # ... ajoutez les 2 autres cartes ici ...
+
+  # Les menus restent au niveau de la langue
+  [[languages.fr.menu.main]]
+    name = "Notes"
+    url = "/notes/"
+    weight = 10
+
+  [[languages.fr.menu.main]]
+    name = "À propos"
+    url = "/about/"
+    weight = 20
+
+  [[languages.fr.menu.footer]]
+    name = "Mentions Légales"
+    url = "/mentions-legales/"
+    weight = 10
+
+[languages.en]
+  languageCode = "en-us"
+  languageName = "English"
+  weight = 2
+  title = "SEO Expert (EN)"
+
+  [languages.en.params]
+    tagline = "SEO & AI Project Manager"
+    description = "Expert in SEO, GEO, and SGE strategy."
+
+    [languages.en.params.author]
+      name = "John Doe"
+      job_title = "SEO / SGE Project Manager"
+      slogan = "Architecting visibility in the Age of AI and Data."
+      description = "Expert in SEO, GEO, and SGE strategy."
+      tech_stack = ["GA4", "AI Agents", "Python", "SEO Automation"]
+      cv_url = "/cv-demo-en.pdf"
+
+    [[languages.en.params.expertises]]
+      title = "Strategic Expertise & AI"
+      icon = "fas fa-brain"
+      content = "SEO & SGE Strategy. Visibility optimization for AI answer engines."
+    # ... ajoutez les 2 autres cartes ici ...
+
+  [[languages.en.menu.main]]
+    name = "Notes"
+    url = "/notes/"
+    weight = 10
+
+  [[languages.en.menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 20
+
+  [[languages.en.menu.footer]]
+    name = "Legal Notice"
+    url = "/legal-notice/"
+    weight = 10
+
+[params]
+  header_image = "img/hero-ia-data.png"
+  sidebar_avatar = "img/yves-boutherand.jpg"
+  articles_par_page = 6
+
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+  [markup]
+  [markup.goldmark.renderer]
+    unsafe = true 
+  [markup.highlight]
+    style = "dracula"
+
+[frontmatter]
+  lastmod = [":fileModTime", "lastmod", ":git", "date"]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+  enableRobotsTXT = true
+
+[params.social]
+  # C'est ce qui fait apparaître les icônes sociales : here the display of your social account
+  linkedin = "https://linkedin.com/in/yboutherand"
+  github = "https://github.com/boyv"
+  email = "yboutherand@gmail.com"
+

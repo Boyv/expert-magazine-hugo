@@ -1,0 +1,12 @@
+[
+    {{- range $index, $page := .Site.RegularPages -}}
+    {{- if $index -}},{{- end }}
+    {
+        "title": {{ $page.Title | jsonify }},
+        "date": {{ $page.Date.Format "02/01/2006" | jsonify }},
+        "permalink": {{ $page.Permalink | jsonify }},
+        "excerpt": {{ $page.Summary | plainify | jsonify }},
+        "content": {{ $page.Content | plainify | jsonify }}
+    }
+    {{- end -}}
+]

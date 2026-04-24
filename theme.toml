@@ -1,0 +1,8 @@
+name = "Expert Magazine SEO"
+description = "Thème Hugo haute performance optimisé SEO & IA"
+license = "MIT"
+min_hugo_version = "0.110.0"
+
+[author]
+  name = "Yves Boutherand"
+  homepage = "https://yboutherand.fr"

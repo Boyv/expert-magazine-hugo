@@ -1,0 +1,26 @@
+[[expertises]]
+categorie = "AI & Strategic Expertise"
+icon = "fas fa-brain"
+points = [
+    "**SGEO & SGE Strategy**: Visibility optimization (Perplexity, Gemini, ChatGPT) et influence des sources LLM.",
+    "**Agentic SEO & Automation**: Designing multi-agent workflows with CrewAI to automate content production, auditing, and competitive intelligence.",
+    "**LLM Proficiency & Prompt Engineering**: Advanced use of language models for semantic clustering and large-scale search intent analysis."
+]
+
+[[expertises]]
+categorie = "Data Intelligence & Analytics"
+icon = "fas fa-chart-line"
+points = [
+    "**Performance Management (GA4 & Piwik PRO)**: Advanced setup, event tracking, and conversion funnel analysis",
+    "**Data SEO with BigQuery & Python**: Log analysis, handling large datasets, and automated reporting via SQL.",
+    "**Dataviz**: Building strategic dashboards to monitor business and SEO KPIs."
+]
+
+[[expertises]]
+categorie = "Technical & Project Management"
+icon = "fas fa-cogs"
+points = [
+    "**Agile Project Management**: Leading complex roadmaps, technical sprint prioritization, and coordinating multidisciplinary teams (Devs, Content, Data).",
+    "**Technical SEO & Core Web Vitals**: In-depth audits, structural recommendations, and implementation support for major CMS (WordPress, Drupal, Magento).",
+    "**Technical Environment**: Proficient in Git for technical collaboration and deploying SEO scripts in Python."
+]

@@ -1,0 +1,38 @@
+[view_cv]
+other = "Download CV (PDF)"
+
+[latest_insights]
+other = "Latest Insights"
+
+[read_more]
+other = "Read more"
+
+[nav_archive]
+other = "Archive"
+
+[nav_about]
+other = "About"
+
+[nav_legal]
+other = "Legal Mentions"
+
+[contact_title]
+other = "Contact"
+
+[footer_made_with]
+other = "Made with passion (and Hugo)"
+
+[search_placeholder]
+other = "Search for an article, a tech..."
+
+[search_title]
+other = "Search"
+
+[date_format]
+other = "Jan 2, 2006"
+
+[published_on]
+other = "Published on"
+
+[last_updated]
+other = "Last updated on"

@@ -1,0 +1,38 @@
+[view_cv]
+other = "Consulter mon CV (PDF)"
+
+[latest_insights]
+other = "Dernières publications"
+
+[read_more]
+other = "Lire la suite"
+
+[nav_archive]
+other = "Archive"
+
+[nav_about]
+other = "À propos"
+
+[nav_legal]
+other = "Mentions Légales"
+
+[contact_title]
+other = "Contact"
+
+[footer_made_with]
+other = "Conçu avec passion (et Hugo)"
+
+[search_placeholder]
+other = "Rechercher un article, une techno..."
+
+[search_title]
+other = "Recherche"
+
+[date_format]
+other = "02/01/2006"
+
+[published_on]
+other = "Publié le"
+
+[last_updated]
+other = "Mis à jour le"
