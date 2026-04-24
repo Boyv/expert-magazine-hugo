@@ -18,12 +18,13 @@ jobs:
         with:
           submodules: recursive
       - name: Setup Hugo
-        uses: actions/setup-hugo@v2
+        # Correction ici : Utilisation de l'action officielle peaceiris
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
       - name: Build
-        # On dit à Hugo de compiler en utilisant le dossier exampleSite comme source
+        # On compile en utilisant exampleSite comme source
         run: hugo --source exampleSite --themesDir ../.. --theme $(basename $(pwd))
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
