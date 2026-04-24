@@ -2,6 +2,9 @@
 
 # Expert Minimalist Magazine SEO - Hugo Theme
 
+
+[**🚀 /See Live demo/Voir la Démo Live**](https://boyv.github.io/expert-magazine-hugo/)
+
 **Expert Magazine SEO** is a high-performance Hugo theme designed for experts and consultants. It provides a technically flawless multilingual (FR/EN) showcase, fully optimized for modern SEO (SGE, AI, and GEO).
 
 ## 🚀 Key Features
@@ -21,7 +24,7 @@
 
 1. Clone this repository into your `themes/` folder:
    ```bash
-   git clone [https://github.com/boyv/expert-magazine-hugo.git](https://github.com/your-account/expert-magazine-hugo.git) themes/expert-magazine
+   git clone https://github.com/boyv/expert-magazine-hugo.git themes/expert-magazine
 2. In your Hugo project root, update your hugo.toml to use the theme:
    theme = "expert-magazine"
 
@@ -66,10 +69,16 @@ languageCode = "en-us"
       icon = "fas fa-brain"
       content = "Optimisation pour les moteurs de réponse (GEO/SGE)."
 
+[params]
+  articles_par_page = 6 # Set to 6 or 9 to respect the 3-column grid layout
+
+💡 Test rapide : Un dossier exampleSite est inclus dans ce dépôt. Vous pouvez copier son contenu à la racine d'un nouveau projet Hugo pour voir le thème en action avec des articles de démonstration.
 
 _____________________________________________________________________________________________________________________________________
 # VERSION FRANCE
 # Expert Minimaliste Magazine SEO - Hugo Theme
+
+[**🚀 Voir la Démo Live**](https://boyv.github.io/expert-magazine-hugo/)
 
 **Expert Magazine SEO** est un thème Hugo haute performance, conçu pour les experts et consultants souhaitant une vitrine multilingue (FR/EN) techniquement irréprochable et optimisée pour le SEO moderne (SGE, IA, GEO).
 
@@ -89,7 +98,7 @@ ________________________________________________________________________________
 
 1. Clonez ce dépôt dans votre dossier `themes/` :
    ```bash
-   git clone [https://github.com/votre-compte/expert-magazine-hugo.git](https://github.com/votre-compte/expert-magazine-hugo.git) themes/expert-magazine
+   git clone [https://github.com/boyv/expert-magazine-hugo.git](https://github.com/votre-compte/expert-magazine-hugo.git) themes/expert-magazine
 
 2. Dans la racine de votre projet Hugo, modifiez votre fichier hugo.toml pour utiliser le thème :
 theme = "expert-magazine"
@@ -134,6 +143,10 @@ languageCode = "en-us"
       icon = "fas fa-brain"
       content = "Optimization for AI answer engines (GEO/SGE)."
 
+[params]
+  articles_par_page = 6 # Set to 6 or 9 to respect the 3-column grid layout
+
+💡 Test rapide : Un dossier exampleSite est inclus dans ce dépôt. Vous pouvez copier son contenu à la racine d'un nouveau projet Hugo pour voir le thème en action avec des articles de démonstration.
 
    📂 Gestion du Contenu
 Pour lier vos articles entre les langues, utilisez le suffixe :
