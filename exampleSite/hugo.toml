@@ -1,5 +1,7 @@
+baseURL = 'https://boyv.github.io/expert-magazine-hugo/'
 defaultContentLanguage = "en"
 languageCode = "en-us"
+# ... reste du fichier
 
 [languages.fr]
   languageCode = "fr-fr"
