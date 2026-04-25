@@ -15,7 +15,7 @@
                 <li><a href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
                 {{ end }}
                 {{- /* On garde le lien "About" s'il n'est pas dans le menu footer */ -}}
-                <li><a href="{{ "/about/" | relLangURL }}">{{ T "nav_about" }}</a></li>
+                <li><a href="{{ "about/" | relLangURL }}">{{ T "nav_about" }}</a></li>
             </ul>
         </div>
 

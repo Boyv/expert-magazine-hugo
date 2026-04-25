@@ -28,7 +28,7 @@
         </div>
 
         <div class="cta-area">
-            <a href="{{ .Site.Params.author.cv_url | default "#" }}" class="btn-cv" target="_blank">{{ T "view_cv" }}</a>
+            <a href="{{ .Site.Params.author.cv_url | relURL }}" class="btn-cv" target="_blank">{{ T "view_cv" }}</a>
         </div>
     </section>
     <section class="expertises-section container">

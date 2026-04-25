@@ -4,6 +4,7 @@ subtitle: "Here you can add a subtitle"
 date: 2026-04-24
 description: "How to cross-reference Search Console data with actual sales via Google Cloud."
 header_img: "Bigqwery-gsc.png"
+abstract: "Agentic AI marks the transition from passive generative AI to autonomous systems capable of executing complex missions via tools. This guide explores CrewAI and its impact on technical SEO."
 tags: ["BigQuery", "Data", "GSC"]
 speakable_summary: "Using BigQuery to analyze Google Search Console data allows SEOs to move beyond the limits of the standard interface. By cross-referencing search performance with internal conversion data, experts can pinpoint the exact queries that are truly driving revenue."
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Legal Notice"
-layout: "page"
+layout: "single"
+url: "/legal-notice/"
 translationKey: "legal"
 ---
 

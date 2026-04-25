@@ -1,6 +1,7 @@
 ---
 title: "Mentions Légales"
-layout: "page"
+layout: "single"
+url: "mentions-legales/"
 translationKey: "legal"
 ---
 

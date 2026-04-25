@@ -7,7 +7,7 @@ meta_title: "IA Agentique : Guide Complet pour Experts SEO et Data"
 abstract: "L'IA agentique marque le passage de l'IA générative passive à des systèmes autonomes capables d'exécuter des missions complexes via des outils. Ce guide explore CrewAI et l'impact sur le SEO technique."
 header_img: "Bigqwery-gsc.png"
 tags: ["BigQuery", "Data", "GSC"]
-speakable_summary: "L'utilisation de BigQuery pour analyser les données de la Google Search Console permet de dépasser les limites de l'interface standard. En croisant les performances de recherche avec les données de conversion internes, les experts SEO peuvent identifier précisément les requêtes qui génèrent réellement du chiffre d'affaires."
+
 ---
 
 ## Dépasser les limites de la Search Console

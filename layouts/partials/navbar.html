@@ -1,11 +1,12 @@
 <nav class="navbar">
     <div class="container nav-wrapper">
         <div class="nav-left">
-            <a href="{{ "/" | relLangURL }}" class="nav-home-link" title="{{ T "home_title" }}">
-                <i class="fas fa-house"></i>
-            </a>
-            <a href="{{ "/" | absLangURL }}" class="nav-brand"></a>
+          <div class="nav-left">
+          <a href="{{ site.Home.Permalink }}" class="nav-brand" title="{{ T "home_title" }}">
+          <i class="fas fa-house" style="font-size: 1.8rem;"></i>
+          </a>
         </div>
+    </div>
 
         <ul class="nav-menu">
             {{ range .Site.Menus.main }}

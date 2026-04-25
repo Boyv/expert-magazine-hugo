@@ -18,6 +18,16 @@
 - **Expertise Cards**: A dynamic hero section to showcase your core skill sets.
 - **Performance**: Lightweight architecture, minified SCSS, FontAwesome icons.
 
+### 🤖 AI-Ready & Speakable Content
+The theme includes a specialized "Abstract" block designed for **SGE (Search Generative Experience)** and **GEO (Generative Engine Optimization)**.
+- **How to use**: Add an `abstract` parameter in your post's Front Matter.
+- **Output**: It generates a visually distinct box and assigns a `speakable-summary` ID, helping AI crawlers identify the core message of your article instantly.
+---
+title: "My top article"
+date: 2024-03-20
+abstract: "here you can add a summary. it will be include in the speakable bloc."
+---
+
 ---
 
 ## 🛠 Installation
@@ -91,6 +101,16 @@ ________________________________________________________________________________
     - Balises Meta dynamiques (`og:locale`, titres, descriptions) adaptées à chaque langue.
 - **Données Structurées (JSON-LD)** : Schéma `Person` sur l'accueil et `Article` sur les pages, automatisé via la configuration.
 - **Expertises Cards** : Section d'accueil dynamique pour présenter vos pôles de compétences.
+
+### 🤖 Optimisation pour l'IA (SGE/GEO)
+Le thème intègre un bloc "Résumé" spécifiquement conçu pour la **SGE** et le **GEO**.
+- **Utilisation** : Ajoutez un paramètre `abstract` dans le Front Matter de vos articles.
+- **Rendu** : Cela génère un encadré "Résumé IA & TL;DR" avec l'ID `speakable-summary`, aidant les robots et les IA à extraire
+Usage: 
+title: "Mon super article"
+date: 2024-03-20
+abstract: "Ceci est le résumé optimisé pour les IA. Il apparaît dans un bloc spécial en haut de page pour booster le SEO moderne."
+--- immédiatement l'essence de votre contenu.
 
 ---
 

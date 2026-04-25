@@ -1,5 +1,9 @@
 baseURL = 'https://boyv.github.io/expert-magazine-hugo/'
-canonifyURLs = true
+# On définit où se trouvent les thèmes (2 niveaux au-dessus)
+themesDir = "../../"
+# On donne le nom exact du dossier de votre thème
+theme = "hugo-theme-expert-magazine"
+canonifyURLs = false
 defaultContentLanguage = "en"
 languageCode = "en-us"
 
@@ -21,7 +25,7 @@ languageCode = "en-us"
       slogan = "L'architecture de votre visibilité à l'ère de l'IA et de la Data."
       description = "Expert en stratégie SEO, GEO et SGE pour optimiser votre visibilité." # Répétez-la ici pour le JSON
       tech_stack = ["GA4", "GSC", "BigQuery", "Python", "SEO Agentique"]
-      cv_url = "/cv-yves-b-fr.pdf"
+      cv_url = "cv-yves-b-fr.pdf"
 
     # Expertises spécifiques au français
     [[languages.fr.params.expertises]]
@@ -33,17 +37,17 @@ languageCode = "en-us"
   # Les menus restent au niveau de la langue
   [[languages.fr.menu.main]]
     name = "Notes"
-    url = "/notes/"
+    url = "notes/"
     weight = 10
 
   [[languages.fr.menu.main]]
     name = "À propos"
-    url = "/about/"
+    url = "about/"
     weight = 20
 
   [[languages.fr.menu.footer]]
     name = "Mentions Légales"
-    url = "/mentions-legales/"
+    url = "mentions-legales/"
     weight = 10
 
 [languages.en]
@@ -62,7 +66,7 @@ languageCode = "en-us"
       slogan = "Architecting visibility in the Age of AI and Data."
       description = "Expert in SEO, GEO, and SGE strategy."
       tech_stack = ["GA4", "AI Agents", "Python", "SEO Automation"]
-      cv_url = "/cv-demo-en.pdf"
+      cv_url = "cv-demo-en.pdf"
 
     [[languages.en.params.expertises]]
       title = "Strategic Expertise & AI"
@@ -72,17 +76,17 @@ languageCode = "en-us"
 
   [[languages.en.menu.main]]
     name = "Notes"
-    url = "/notes/"
+    url = "notes/"
     weight = 10
 
   [[languages.en.menu.main]]
     name = "About"
-    url = "/about/"
+    url = "about/"
     weight = 20
 
   [[languages.en.menu.footer]]
     name = "Legal Notice"
-    url = "/legal-notice/"
+    url = "legal-notice/"
     weight = 10
 
 [params]
